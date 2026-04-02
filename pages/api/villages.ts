@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const pageNumber = Number(page) || 1;
       const limitNumber = Number(limit) || 20;
 
-      const where: any = {};
+      const where: Record<string, unknown> = {};
 
       if (state && state !== 'All states') {
         where.state = state;
