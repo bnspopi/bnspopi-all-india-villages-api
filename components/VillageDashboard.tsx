@@ -40,15 +40,15 @@ const VillageDashboard = () => {
 
     try {
       const response = await fetch(`/api/villages?${query}`);
-      const villages = await response.json();
+      const result = await response.json();
 
       if (!response.ok) {
-        const body = villages as { error?: string };
-        throw new Error(body?.error || 'Unable to load villages.');
+        const error = result as { error?: string };
+        throw new Error(error?.error || 'Unable to load villages.');
       }
 
-      setVillages(villages);
-      setTotal(Array.isArray(villages) ? villages.length : 0);
+      setVillages(result.data || []);
+      setTotal(result.total || 0);
     } catch (caught) {
       const message = caught instanceof Error ? caught.message : 'Unknown error';
       setError(message);
