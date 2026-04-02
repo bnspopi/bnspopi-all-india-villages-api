@@ -1,7 +1,8 @@
 {
   "build": {
     "env": {
-      "NPM_CONFIG_LOGLEVEL": "error"
+      "NPM_CONFIG_LOGLEVEL": "error",
+      "NODE_OPTIONS": "--no-deprecation"
     }
   }
 }
