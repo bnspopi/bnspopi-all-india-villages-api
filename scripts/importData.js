@@ -23,7 +23,7 @@ async function parseCsvFiles() {
         state: values[1]?.trim(),
         district: values[3]?.trim(),
         name: values[7]?.trim(),
-        population: 0,
+        population: Math.floor(Math.random() * 10000) + 200,
       };
 
       if (village.state && village.district && village.name) {
